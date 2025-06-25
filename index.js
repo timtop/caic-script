@@ -29,20 +29,19 @@ modal.addEventListener("click", (event) => {
 });
 
 // Swiper
-window.addEventListener("load", () => {
-  const testiSwiper = new Swiper(".testi-slider", {
-    loop: true,
-    speed: 2200,
-    fadeEffect: { crossFade: true },
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    navigation: {
-      nextEl: ".right-arrow",
-      prevEl: ".left-arrow",
-    },
-  });
+// window.addEventListener("load", () => {
+const testiSwiper = new Swiper(".testi-slider", {
+  loop: true,
+  speed: 2200,
+  fadeEffect: { crossFade: true },
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+  navigation: {
+    nextEl: ".right-arrow",
+    prevEl: ".left-arrow",
+  },
 });
 
 const faqItems = document.querySelectorAll(".faq-item");
