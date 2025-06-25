@@ -3,6 +3,7 @@ window.addEventListener("load", () => {
   const testiSwiper = new Swiper(".testi-slider", {
     loop: true,
     speed: 2200,
+    spaceBetween: 30,
     fadeEffect: { crossFade: true },
     autoplay: {
       delay: 2500,
