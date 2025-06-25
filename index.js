@@ -1,50 +1,3 @@
-// const lenis = new Lenis();
-// function raf(time) {
-//   lenis.raf(time);
-//   requestAnimationFrame(raf);
-// }
-// requestAnimationFrame(raf);
-
-// const menu = document.querySelector(".nav-links_wrapper");
-// const navBtn = document.querySelector(".c-nav_hamburger");
-
-// navBtn.addEventListener("click", () => {
-//   menu.classList.toggle("cc-show");
-//   navBtn.classList.toggle("cc-open");
-//   document.querySelector("body").classList.toggle("cc-stop-scroll");
-// });
-
-// gsap.registerPlugin(SplitText);
-// gsap.registerPlugin(ScrollTrigger);
-// document.fonts.ready.then(() => {
-//   //general text anim
-//   const headerText = document.querySelectorAll("[data-header-anim]");
-//   headerText.forEach((header) => {
-//     gsap.set(headerText, { visibility: "visible", opacity: 1 });
-//     let results = new SplitText(header, {
-//         type: "lines",
-//         linesClass: "header",
-//       }),
-//       lines = results.lines;
-//     const resultsParent = new SplitText(header, {
-//       linesClass: "header-parent",
-//     });
-//     const tl = gsap.timeline({
-//       scrollTrigger: {
-//         trigger: header,
-//         start: "top 90%",
-//       },
-//     });
-//     tl.from(results.lines, {
-//       duration: 0.8,
-//       opacity: 0,
-//       yPercent: 50,
-//       ease: "power3.out",
-//       stagger: 0.25,
-//     });
-//   });
-// });
-
 // Opening the modal
 const enroll = document.querySelectorAll("#enroll");
 const modal = document.querySelector(".modal-overlay");
@@ -75,4 +28,51 @@ modal.addEventListener("click", (event) => {
   }
 });
 
-// alert("This is working");
+// Swiper
+window.addEventListener("load", () => {
+  const testiSwiper = new Swiper(".testi-slider", {
+    loop: true,
+    speed: 2200,
+    fadeEffect: { crossFade: true },
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: ".right-arrow",
+      prevEl: ".left-arrow",
+    },
+  });
+});
+
+const faqItems = document.querySelectorAll(".faq-item");
+
+// Accordion logic
+faqItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    faqItems.forEach((i) => {
+      const answer = i.querySelector(".faq-answer");
+      const horizontalLine = i.querySelector(".icon-horizontal-line");
+
+      if (i === item) {
+        // Toggle the clicked item
+        const isOpen = i.classList.contains("active");
+
+        if (isOpen) {
+          i.classList.remove("active");
+          answer.style.height = "0px";
+          horizontalLine.style.transform = "rotate(0deg)";
+        } else {
+          i.classList.add("active");
+          answer.style.height = answer.scrollHeight + "px";
+          horizontalLine.style.transform = "rotate(90deg)";
+        }
+      } else {
+        // Close all others
+        i.classList.remove("active");
+        answer.style.height = "0px";
+        horizontalLine.style.transform = "rotate(0deg)";
+      }
+    });
+  });
+});
